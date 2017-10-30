@@ -14,18 +14,25 @@ body {
 }
 
 #nexus {
+    position: absolute;
     width: 25vh;
     right: 0;
     bottom: 0;
 }
 
 #volibear {
+    position: absolute;
     height: 20vh;
     width: 25vh;
+    bottom: 0;
+    left: 0;
 }
 
 #rammus {
+    position: absolute;
+    transform: scaleX(-1);
     height: 20vh;
     width: 25vh;
-    image-orientation: flip;
+    bottom: 0;
+    left: 0;
 }
