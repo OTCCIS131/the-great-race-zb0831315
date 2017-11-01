@@ -5,9 +5,10 @@ body {
     background-position: bottom center;
     height: 100vh;
     width: 100vh;
+    overflow: hidden;
 }
 
-#playButton {
+#playIcon {
     height: 10vh;
     width: 10vh; 
     transition: opacity .2s;
@@ -21,24 +22,27 @@ body {
 }
 
 #volibear {
-    position: absolute;
     height: 20vh;
     width: 25vh;
-    bottom: 0vh;
-    left: 0vh;
 }
 
 #rammus {
-    position: absolute;
-    transform: scaleX(-1);
     height: 20vh;
     width: 25vh;
     bottom: 20vh;
-    left: 0vh;
 }
 
 .racer {
     position: absolute;
     left: 0;
-    bottom: 10vh;
+    bottom: 0vh;
+    transition: left .5s;
+    transform: scaleX(-1);
+}
+
+.winner {
+    bottom: 20vh;
+    left: 40vw !important;
+    width: 30vw !important;
+    transition: bottom .5s, left .5s, width .5s;
 }
