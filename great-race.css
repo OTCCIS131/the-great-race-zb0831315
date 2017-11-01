@@ -16,16 +16,16 @@ body {
 #nexus {
     position: absolute;
     width: 25vh;
-    right: 0;
-    bottom: 0;
+    right: 0vh;
+    bottom: 0vh;
 }
 
 #volibear {
     position: absolute;
     height: 20vh;
     width: 25vh;
-    bottom: 0;
-    left: 0;
+    bottom: 0vh;
+    left: 0vh;
 }
 
 #rammus {
@@ -33,6 +33,12 @@ body {
     transform: scaleX(-1);
     height: 20vh;
     width: 25vh;
-    bottom: 0;
+    bottom: 20vh;
+    left: 0vh;
+}
+
+.racer {
+    position: absolute;
     left: 0;
+    bottom: 10vh;
 }
