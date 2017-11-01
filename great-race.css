@@ -42,7 +42,7 @@ body {
 
 .winner {
     bottom: 20vh;
-    left: 40vw !important;
-    width: 30vw !important;
+    left: 45vw !important;
+    width: 15vw !important;
     transition: bottom .5s, left .5s, width .5s;
 }

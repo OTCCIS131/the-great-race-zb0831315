@@ -4,16 +4,16 @@ $(function () {
         data: {
             racing: false,
             winner: null,
-            volibear: 0,
             rammus: 0,
+            volibear: 0,
             tick: 0,
             interval: null
         },
         computed: {
             winning() {
-                if (this.volibear == this.rammus) return null
+                if (this.rammus == this.volibear) return null
 
-                return this.volibear > this.rammus ? 'Volibear' : 'Rammus'
+                return this.rammus > this.volibear ? 'Rammus' : 'Volibear'
             },
             rammusStyle() {
                 return {
@@ -22,7 +22,7 @@ $(function () {
             },
             rammusClass() {
                 if (!this.winner) return
-                return this.winner == 'Rammus'
+                return this.winner == 'Rammus' ? 'animated bounceInUp infinite winner' : 'animated fadeOutDownBig'
             },
             voliStyle() {
                 return {
@@ -31,7 +31,7 @@ $(function () {
             },
             voliClass() {
                 if (!this.winner) return
-                return this.winner == 'Volibear'
+                return this.winner == 'Volibear' ? 'animated bounceInUp infinite winner' : 'animated fadeOutDownBig'
             }
         },
         methods: {
@@ -40,42 +40,42 @@ $(function () {
                     this.restart()
                     return
                 }
-            this.racing = true
+                this.racing = true
 
-            this.interval = setInterval(() => {
-                this.progressPlayers()
-            }, 50)
-        },
-        progressPlayers() {
-            this.tick++
-            this.volibear += (Math.random() >= Math.random()) ? 1 : 0
-            this.rammus += (Math.random() >= Math.random()) ? 1 : 0
-            this.checkVicktory()
-        },
-        checkVictory() {
-            if (this.volibear == this.rammus) return
+                this.interval = setInterval(() => {
+                    this.progressPlayers()
+                }, 50)
+            },
+            progressPlayers() {
+                this.tick++
+                this.rammus += (Math.random() >= Math.random()) ? 1 : 0
+                this.volibear += (Math.random() >= Math.random()) ? 1 : 0
+                this.checkVictory()
+            },
+            checkVictory() {
+                if (this.rammus == this.volibear) return
 
-            if (this.volibear >= 90) {
-                this.declareVictory('Volibear')
+                if (this.rammus >= 85) {
+                    this.declareVictory('Rammus')
+                }
+
+                if (this.volibear >= 85) {
+                    this.declareVictory('Volibear')
+                }
+            },
+            declareVictory(player) {
+                clearInterval(this.interval)
+                this.interval = null
+                this.racing = false
+                this.winner = player
+            },
+            restart() {
+                this.racing = false
+                this.winner = null
+                this.rammus = 0
+                this.volibear = 0
+                this.tick = 0
             }
-
-            if (this.rammus >= 90) {
-                this.declareVictory('Rammus')
-            }
-        },
-        declareVictory(player) {
-            clearInterval(this.interval)
-            this.interval = null
-            this.racing = false
-            this.winner = player
-        },
-        restart() {
-            this.racing = false
-            this.winner = null 
-            this.volibear = 0
-            this.rammus = 0
-            this.tick = 0
         }
-    }
-})
+    })
 });
